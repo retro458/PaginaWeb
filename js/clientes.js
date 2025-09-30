@@ -56,7 +56,68 @@ document.getElementById("licenciaForm").addEventListener("submit", function(e) {
   const modal = bootstrap.Modal.getInstance(document.getElementById("licenciasModal"));
   modal.hide();
 });
+const container = document.getElementById("clientes-container");
+const cotizarForm = document.getElementById("cotizarForm");
+const licenciaForm = document.getElementById("licenciaForm");
+const toastEl = document.getElementById("toastCompra");
+const toast = new bootstrap.Toast(toastEl);
 
+// Renderizar clientes al cargar
+function renderClientes() {
+  container.innerHTML = "";
+  clientes.forEach(cliente => {
+    const card = document.createElement("div");
+    card.classList.add("col-md-4", "mb-3");
+    card.innerHTML = `
+      <div class="card h-100 shadow-sm text-center">
+        <div class="card-body">
+          <h5 class="card-title">${cliente.nombre}</h5>
+          <p class="card-text">${cliente.descripcion}</p>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Evento al enviar cotización
+cotizarForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const nombre = document.getElementById("nombre").value;
+  const tipo = document.getElementById("tipo").value;
+
+  clientes.push({
+    nombre: nombre,
+    descripcion: `Cotizó un software: ${tipo}`
+  });
+
+  renderClientes();
+  toast.show();
+
+  cotizarForm.reset();
+  bootstrap.Modal.getInstance(document.getElementById("cotizarModal")).hide();
+});
+
+// Evento al comprar licencia
+licenciaForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const nombre = prompt("Ingrese su nombre para registrar la compra:");
+  const software = document.getElementById("software").value;
+
+  clientes.push({
+    nombre: nombre || "Cliente Anónimo",
+    descripcion: `Compró licencia de: ${software}`
+  });
+
+  renderClientes();
+  toast.show();
+
+  licenciaForm.reset();
+  bootstrap.Modal.getInstance(document.getElementById("licenciasModal")).hide();
+});
+
+// Inicializar lista
+renderClientes();
 // Evento cotización
 document.getElementById("cotizarForm").addEventListener("submit", function(e) {
   e.preventDefault();
