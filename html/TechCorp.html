@@ -88,34 +88,46 @@
     </div>
   </div>
 
-  <!-- Modal Licencias -->
-  <div class="modal fade" id="licenciasModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <form id="licenciaForm">
-          <div class="modal-header">
-            <h5 class="modal-title">Comprar Licencia</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+ <!-- Modal Licencias -->
+<div class="modal fade" id="licenciasModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="licenciaForm">
+        <div class="modal-header">
+          <h5 class="modal-title">Comprar Licencia</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="nombreLicencia" class="form-label">Nombre</label>
+            <input type="text" id="nombreLicencia" class="form-control" required>
           </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="software" class="form-label">Selecciona el software</label>
-              <select class="form-select" id="software" required></select>
-            </div>
-            <div class="mb-3">
-              <label for="pagoLicencia" class="form-label">Método de pago</label>
-              <select class="form-select" id="pagoLicencia" required>
-                <option value="tarjeta">Tarjeta</option>
-              </select>
-            </div>
+          <div class="mb-3">
+            <label for="software" class="form-label">Selecciona el software</label>
+            <select class="form-select" id="software" required>
+              <option value="ERP Empresarial">ERP Empresarial</option>
+              <option value="CRM de Ventas">CRM de Ventas</option>
+              <option value="App en la Nube">App en la Nube</option>
+            </select>
           </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-success">Confirmar Compra</button>
+          <div class="mb-3">
+            <label for="tarjeta" class="form-label">Número de tarjeta</label>
+            <input type="text" id="tarjeta" class="form-control" maxlength="16" required>
           </div>
-        </form>
-      </div>
+          <div class="mb-3">
+            <label for="pagoLicencia" class="form-label">Método de pago</label>
+            <select class="form-select" id="pagoLicencia" required>
+              <option value="tarjeta">Tarjeta</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Confirmar Compra</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
   <!-- Toast de compra -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
