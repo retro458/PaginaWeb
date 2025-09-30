@@ -48,7 +48,7 @@ document.getElementById("licenciaForm").addEventListener("submit", function(e) {
   const toast = new bootstrap.Toast(toastEl);
 
   document.querySelector("#toastCompra .toast-body").textContent =
-    `✅ Compra realizada: ${seleccionado}`;
+    ` Compra realizada: ${seleccionado}`;
 
   toast.show();
 
@@ -60,7 +60,7 @@ document.getElementById("licenciaForm").addEventListener("submit", function(e) {
 // Evento cotización
 document.getElementById("cotizarForm").addEventListener("submit", function(e) {
   e.preventDefault();
-  alert("Cotización enviada correctamente ✅");
+  alert("Cotización enviada correctamente ");
   const modal = bootstrap.Modal.getInstance(document.getElementById("cotizarModal"));
   modal.hide();
 });
