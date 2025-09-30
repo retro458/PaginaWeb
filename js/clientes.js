@@ -116,6 +116,8 @@ licenciaForm.addEventListener("submit", e => {
   bootstrap.Modal.getInstance(document.getElementById("licenciasModal")).hide();
 });
 
+
+
 // Inicializar lista
 renderClientes();
 // Evento cotización

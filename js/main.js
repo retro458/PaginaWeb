@@ -1,7 +1,7 @@
 // Registro de usuario
 const registerForm = document.querySelector('form');
 
-if(registerForm && window.location.pathname.includes('html/registro.html')) {
+if(registerForm && window.location.pathname.includes('registro.html')) {
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
@@ -83,7 +83,7 @@ if(loginForm && window.location.pathname.includes('login.html')) {
 // Mantener sesión activa en Home
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 // Ocultar links de login/registro si hay usuario
-if(currentUser && window.location.pathname.includes('index.html')) {
+if(currentUser && window.location.pathname.includes('Index.html')) {
     const loginLink = document.querySelector('a[href="login.html"]');
     const registroLink = document.querySelector('a[href="registro.html"]'); 
     if (loginLink) loginLink.style.display = 'none';
@@ -91,7 +91,7 @@ if(currentUser && window.location.pathname.includes('index.html')) {
 }
 
 
-if(currentUser && window.location.pathname.includes('index.html')) {
+if(currentUser && window.location.pathname.includes('Index.html')) {
   const nav = document.querySelector('.navbar-nav');
 
   const welcome = document.createElement('li');
